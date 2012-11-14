@@ -6,7 +6,7 @@ The options include:
 
 - ``Transport`` (str) - Name of a channel used to communicate with the Skype client.
   Currently supported values:
-  
+
   - ``'dbus'`` (default)
 
     Uses *DBus* thrugh *dbus-python* package.
@@ -35,6 +35,8 @@ def SkypeAPI(opts):
         from posix_dbus import SkypeAPI
     elif trans == 'x11':
         from posix_x11 import SkypeAPI
+    elif trans == 'imo':
+        from posix_imo import SkypeAPI
     else:
         raise SkypeAPIError('Unknown transport: %s' % trans)
     return SkypeAPI(opts)
